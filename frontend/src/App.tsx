@@ -1,21 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import PostsPage from './ThePostsPage/PostsPage'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import UsersPage from './TheUsersPage/UsersPage'
 
 function App() {
-  const [myData, setMyData] = useState(JSON);
 
   return (
     <Router>
       <Routes>
         <Route path="/ThePostsPage"
-               element={<PostsPage myData={myData} setMyData={setMyData}/>}/>
+               element={<PostsPage/>}/>
         <Route path="/TheUsersPage"
-               element={<UsersPage myData={myData} setMyData={setMyData}/>}/>
+               element={<UsersPage/>}/>
 
                <Route path="*"
               element={<div>
