@@ -15,11 +15,11 @@ type Posts = {
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Posts[]>()
-
+    
     useEffect(() => {
         fetch("http://localhost:3001/posts").then(response => response.json()).then(data => setPosts(data.results))
     }, []);
-
+    
     if(!posts) {
         return <p>No posts here...</p>
     }
@@ -27,7 +27,7 @@ export default function PostsPage() {
     return (
         <div id="post-feed">
                 {posts.map((post, index)=> {
-                     
+                   
                         return (
                             <div className="post-container" key= {index}>
                                 <div className="image-container" >
@@ -36,7 +36,7 @@ export default function PostsPage() {
                                 
                                 <div className="poster-information">
                                     <p className="postUserName">{post.postedBy.username}</p>
-                                    <p className="postCreated">{post.createdAt}, </p>                            
+                                    <p className="postCreated">{post.createdAt} </p>                            
                                     <p className="postMessage">{post.message}</p>
                                 </div>
                             </div> 
