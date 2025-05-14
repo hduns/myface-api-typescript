@@ -1,30 +1,38 @@
 import { useEffect } from "react";
+import { useState } from 'react'
 
 // export function ImageSelector(props: {srcUrl: string, setNewUrl: (url: string) => void}) {
 
-
-export default function PostsPage(props: {myData: JSON, setMyData: (data: JSON) => void}) {
-    useEffect(() => {
-        fetch("http://localhost:3001/posts").then(response => response.json()).then(data => props.setMyData(data.results))
-    }, []);
-
-// console.log('test', props.myData)
-// console.log('test', typeof props.myData)
-
-for (let key in props.myData) {
-    const value = props.myData[key];
-    console.log(value)
-    console.log(value.imageUrl)
+type Posts = {
+    imageUrl: string,
+    message: string,
+    createdAt: string,
+    postedBy: {
+        userName: string,
+    }
 }
 
-    if(!props.myData) {
+export default function PostsPage() {
+    const [posts, setPosts] = useState<Posts[]>()
+
+    useEffect(() => {
+        fetch("http://localhost:3001/posts").then(response => response.json()).then(data => setPosts(data.results))
+    }, []);
+
+
+for (let key in posts) {
+    const value = posts[key];
+
+}
+
+    if(!posts) {
         return <p>No posts here...</p>
     }
 
     return (
         <div id="post-feed">
-                {Object.keys(props.myData).map(key => {
-                        const value = props.myData[key];
+                {Object.keys(posts).map(key => {
+                        const value = posts[key];
                         return (
                             <div id="post-container">
                                 <div id="image-container">
