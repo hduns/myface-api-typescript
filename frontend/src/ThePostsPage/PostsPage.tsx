@@ -8,8 +8,7 @@ type Posts = {
     message: string,
     createdAt: string,
     postedBy: {
-        userName: string,
-    key: string
+    username: string,
     }
 }
 
@@ -26,19 +25,19 @@ export default function PostsPage() {
 
     return (
         <div id="post-feed">
-                {Object.keys(posts).map(key => {
-                        const value = posts[key];
+                {posts.map((post, index)=> {
+                       
                         return (
-                            <div id="post-container">
-                                <div id="image-container">
-                                    <img src={value.imageUrl}/>
+                            <div id="post-container" key= {index}>
+                                <div id="image-container" >
+                                    <img src={post.imageUrl}/>
                                 </div>
                                 <div id="poster-information">
-                                    <p>{value.postedBy.username}</p>
-                                    <p>{value.createdAt}</p>
+                                    <p>{post.postedBy.username}</p>
+                                    <p>{post.createdAt}</p>
                                 </div>
                                 <div id="caption-container">
-                                    <p>{value.message}</p>
+                                    <p>{post.message}</p>
                                 </div>
                             </div>
                         )

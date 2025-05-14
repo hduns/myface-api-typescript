@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 type Users = {
     profileImageUrl: string,
-    username: string
-
+    username: string,
+    
     }
 
 export default function UsersPage() {
@@ -18,18 +18,17 @@ export default function UsersPage() {
     if(!users) {
         return <p>No users here...</p>
     }
-
      return (
         <div id="user-feed">
-                {Object.keys(users).map(key => {
-                        const value = users[key];
+                {users.map((user, index) => {
+
                         return (
-                            <div id="user-container">
+                            <div id="user-container" key={index}>
                                 <div id="image-profile-container">
-                                    <img src={value.profileImageUrl}/>
+                                    <img src={user.profileImageUrl}/>
                                 </div>
                                 <div id="userName">
-                                    <p>{value.username}</p>
+                                    <p>{user.username}</p>
                                 </div>
                             </div>
                       )  
