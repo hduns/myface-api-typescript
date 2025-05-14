@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from 'react'
-import { format } from 'date-fns';
+
 
 // export function ImageSelector(props: {srcUrl: string, setNewUrl: (url: string) => void}) {
 
@@ -39,8 +39,8 @@ export default function PostsPage() {
                                     <p className="postCreated">{post.createdAt}, </p>                            
                                     <p className="postMessage">{post.message}</p>
                                 </div>
-                            </div>
-                        ) {format(post.createdAt)}
+                            </div> 
+                        ) 
                 })}
         </div>
     )
