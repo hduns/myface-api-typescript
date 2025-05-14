@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useState } from 'react'
+import { useState } from 'react';
+import "../App.scss";
 
 type Users = {
     profileImageUrl: string,
@@ -23,11 +24,11 @@ export default function UsersPage() {
                 {users.map((user, index) => {
 
                         return (
-                            <div id="user-container" key={index}>
-                                <div id="image-profile-container">
-                                    <img src={user.profileImageUrl}/>
+                            <div className="user-container" key={index}>
+                                <div className="image-profile-container profile-image">
+                                    <img src={user.profileImageUrl} />
                                 </div>
-                                <div id="userName">
+                                <div className="userName">
                                     <p>{user.username}</p>
                                 </div>
                             </div>

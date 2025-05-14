@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import PostsPage from './ThePostsPage/PostsPage'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import UsersPage from './TheUsersPage/UsersPage'

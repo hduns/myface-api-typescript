@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from 'react'
+import { format } from 'date-fns';
 
 // export function ImageSelector(props: {srcUrl: string, setNewUrl: (url: string) => void}) {
 
@@ -26,21 +27,20 @@ export default function PostsPage() {
     return (
         <div id="post-feed">
                 {posts.map((post, index)=> {
-                       
+                     
                         return (
-                            <div id="post-container" key= {index}>
-                                <div id="image-container" >
+                            <div className="post-container" key= {index}>
+                                <div className="image-container" >
                                     <img src={post.imageUrl}/>
                                 </div>
-                                <div id="poster-information">
-                                    <p>{post.postedBy.username}</p>
-                                    <p>{post.createdAt}</p>
-                                </div>
-                                <div id="caption-container">
-                                    <p>{post.message}</p>
+                                
+                                <div className="poster-information">
+                                    <p className="postUserName">{post.postedBy.username}</p>
+                                    <p className="postCreated">{post.createdAt}, </p>                            
+                                    <p className="postMessage">{post.message}</p>
                                 </div>
                             </div>
-                        )
+                        ) {format(post.createdAt)}
                 })}
         </div>
     )
