@@ -9,6 +9,7 @@ type Posts = {
     createdAt: string,
     postedBy: {
         userName: string,
+    key: string
     }
 }
 
@@ -18,12 +19,6 @@ export default function PostsPage() {
     useEffect(() => {
         fetch("http://localhost:3001/posts").then(response => response.json()).then(data => setPosts(data.results))
     }, []);
-
-
-for (let key in posts) {
-    const value = posts[key];
-
-}
 
     if(!posts) {
         return <p>No posts here...</p>

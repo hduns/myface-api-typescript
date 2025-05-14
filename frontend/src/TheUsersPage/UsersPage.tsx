@@ -1,23 +1,28 @@
 import { useEffect } from "react";
+import { useState } from 'react'
 
-export default function UsersPage(props: {myData: JSON, setMyData: (data: JSON) => void}) {
-    useEffect(() => {
-        fetch("http://localhost:3001/users").then(response => response.json()).then(data => props.setMyData(data.results))
-    }, []);
+type Users = {
+    profileImageUrl: string,
+    username: string
 
-    for (let key in props.myData) {
-    const value = props.myData[key];
-    console.log(value)
     }
 
-    if(!props.myData) {
+export default function UsersPage() {
+
+    const [users, setUsers] = useState<Users[]>()
+
+    useEffect(() => {
+        fetch("http://localhost:3001/users").then(response => response.json()).then(data => setUsers(data.results))
+    }, []);
+
+    if(!users) {
         return <p>No users here...</p>
     }
 
      return (
         <div id="user-feed">
-                {Object.keys(props.myData).map(key => {
-                        const value = props.myData[key];
+                {Object.keys(users).map(key => {
+                        const value = users[key];
                         return (
                             <div id="user-container">
                                 <div id="image-profile-container">
