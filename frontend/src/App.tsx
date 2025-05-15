@@ -13,8 +13,8 @@ function App() {
                element={<PostsPage/>}/>
         <Route path="/TheUsersPage"
                element={<UsersPage/>}/>
-        <Route path="/CreateUser"
-               element={<CreateUSer/>}/>
+        <Route path="/CreateUserPage"
+               element={<CreateUser/>}/>
                
               <Route path="*"
               element={<div>

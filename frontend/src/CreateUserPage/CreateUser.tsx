@@ -24,13 +24,24 @@ export default function CreateUser() {
 
  const handleSubmit = (event: any ) => {
     event.preventDefault();
-    alert(NewUserData)
+
+    fetch("http://localhost:3001/users/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+        name: NewUserData.name,
+        username: NewUserData.username,
+        email: NewUserData.email,
+        coverImageUrl: NewUserData.coverImageUrl,
+        profileImageUrl: NewUserData.profileImageUrl,
+    }),
+    })
  };
 
 
     return (
 
-        <form className="CreateNewUserForm"  method="post" action="/routes/userRoutes/users/create" onSubmit={handleSubmit}> 
+        <form className="CreateNewUserForm"  onSubmit={handleSubmit}> 
             <label className="newUserName">
                 <p id="Name">Name:</p>
                 <input id="NameInput" type="text" name="name" pattern="[a-zA-Z ]+" placeholder="Enter name here" value={NewUserData.name || ""} onChange={handleChange} required/>
@@ -40,7 +51,7 @@ export default function CreateUser() {
                 <p id="Username">Username:</p>
                 <input id="UsernameInput" type="text" name="username" pattern="[a-z0-9]+" placeholder="Enter username here" value={NewUserData.username || ""} onChange={handleChange} required/>
             </label>
-{/* pattern="/^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/g" */}
+
             <label className="newUserEmail">
                 <p id="Email">Email:</p>
                 <input id="EmailInput" type="email" name="email"  placeholder="Enter email here"  value={NewUserData.email || ""} onChange={handleChange}  required/>
@@ -61,19 +72,3 @@ export default function CreateUser() {
 
     );
 };
-
-
-// e: React.ChangeEvent<HTMLInputElement> 
-
-//changeData = (e: React.MouseEvent<HTMLInputElement>): void => { // code }
-
-// function handleChange(e: React.ChangeEvent<HTMLInputElement>)
-
-
-
-{/* <form method="post" action="/users/create">
-    <label class="createUserLabel">
-        <p id="name">Name:</p>
-        <input id="nameInput" type="text" name="name" pattern="[a-zA-Z ]+" placeholder="Enter name here" required/>
-    </label>
-</form> */}
