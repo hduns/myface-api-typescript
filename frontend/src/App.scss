@@ -1,5 +1,9 @@
 @import "./designStandards.scss";
 
+body {
+  background-color: $background;
+}
+
 #user-feed {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -25,6 +29,7 @@
 .post-container {
   background: $darkBackground;
   margin: 12px;
+  color: $defaultForeground;
 }
 
 #post-feed {
@@ -51,6 +56,8 @@
 .user-container {
   background: $darkBackground;
   margin: 12px;
+  color: $defaultForeground;
+
 }
 
 .poster-information {
@@ -69,4 +76,8 @@
   .postMessage {
     font-weight: $regularFontWeight;
   }
+}
+
+.CreateNewUserForm {
+  color: $defaultForeground;
 }

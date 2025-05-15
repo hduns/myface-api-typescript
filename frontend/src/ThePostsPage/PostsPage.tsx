@@ -1,8 +1,10 @@
 import { useEffect } from "react";
-import { useState } from 'react'
+import { useState } from 'react';
+import dayjs from 'dayjs';
 
 
 // export function ImageSelector(props: {srcUrl: string, setNewUrl: (url: string) => void}) {
+
 
 type Posts = {
     imageUrl: string,
@@ -36,7 +38,7 @@ export default function PostsPage() {
                                 
                                 <div className="poster-information">
                                     <p className="postUserName">{post.postedBy.username}</p>
-                                    <p className="postCreated">{post.createdAt} </p>                            
+                                    <p className="postCreated">{dayjs(post.createdAt).format("DD/MM/YYYY")} </p>                            
                                     <p className="postMessage">{post.message}</p>
                                 </div>
                             </div> 
