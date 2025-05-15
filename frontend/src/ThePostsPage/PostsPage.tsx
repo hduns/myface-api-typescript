@@ -36,6 +36,20 @@ export default function PostsPage() {
                                     <img src={post.imageUrl}/>
                                 </div>
                                 
+                                    <div className="button-container">
+                                    <div className="like-button">
+                                    <form>
+                                        <button type="submit"><i className="fa fa-thumbs-up"></i></button>
+                                    </form>
+                                    </div>
+                                    
+                                    <div className="dislike-button">
+                                    <form>
+                                        <button type="submit"><i className="fa fa-thumbs-down"></i> </button>
+                                    </form>
+                                    </div>
+                                </div> 
+
                                 <div className="poster-information">
                                     <p className="postUserName">{post.postedBy.username}</p>
                                     <p className="postCreated">{dayjs(post.createdAt).format("DD/MM/YYYY")} </p>                            
