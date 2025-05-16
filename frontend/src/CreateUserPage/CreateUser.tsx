@@ -43,7 +43,7 @@ export default function CreateUser() {
         <form className="CreateNewUserForm"  onSubmit={handleSubmit}> 
             <label className="newUserName">
                 <p id="Name">Name:</p>
-                <input id="NameInput" type="text" name="name" placeholder="Enter name here" value={newUserData.name || ""} onChange={handleChange} required/>
+                <input id="NameInput" type="text" name="name" pattern="[a-z0-9]+" placeholder="Enter name here" value={newUserData.name || ""} onChange={handleChange} required/>
             </label>
             
             <label className="newUserUserame">
