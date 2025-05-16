@@ -17,10 +17,15 @@ type Posts = {
     likedBy: {
         length: number,
     },
+    dislikedBy: {
+        length: number,
+    },
+    id: number
 }
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Posts[]>()
+    const [postID, setPostID] = useState(0)
     
     useEffect(() => {
         fetch("http://localhost:3001/posts").then(response => response.json()).then(data => {
@@ -68,16 +73,17 @@ export default function PostsPage() {
                                     <img src={post.imageUrl}/>
                                 </div>
                                 <p>{post.likedBy.length}</p>
+                                <p>{post.dislikedBy.length}</p>
                                     <div className="button-container">
                                     <div className="like-button">
                                     <form onSubmit={handleLikePost}>
-                                        <button type="submit"><i className="fa fa-thumbs-up">Like</i></button>
+                                        <button onClick={() => setPostID(post.id)} type="submit"><i className="fa fa-thumbs-up">Like</i></button>
                                     </form>
                                     </div>
                                     
                                     <div className="dislike-button">
                                     <form onSubmit={handleDislikePost}>
-                                        <button type="submit"><i className="fa fa-thumbs-down">Dislike</i> </button>
+                                        <button onClick={() => setPostID(post.id)} type="submit"><i className="fa fa-thumbs-down">Dislike</i> </button>
                                     </form>
                                     </div>
                                 </div> 

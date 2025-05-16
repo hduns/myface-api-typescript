@@ -13,8 +13,7 @@ type FormData = {
 
 export default function CreateUser() {
     const [newUserData, setNewUserData ] = useState<FormData>({} as FormData);
-
-
+    
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -44,12 +43,13 @@ export default function CreateUser() {
         <form className="CreateNewUserForm"  onSubmit={handleSubmit}> 
             <label className="newUserName">
                 <p id="Name">Name:</p>
-                <input id="NameInput" type="text" name="name" pattern="[a-zA-Z ]+" placeholder="Enter name here" value={newUserData.name || ""} onChange={handleChange} required/>
+                <input id="NameInput" type="text" name="name" placeholder="Enter name here" value={newUserData.name || ""} onChange={handleChange} required/>
             </label>
             
             <label className="newUserUserame">
                 <p id="Username">Username:</p>
                 <input id="UsernameInput" type="text" name="username" pattern="[a-z0-9]+" placeholder="Enter username here" value={newUserData.username || ""} onChange={handleChange} required/>
+
             </label>
 
             <label className="newUserEmail">
